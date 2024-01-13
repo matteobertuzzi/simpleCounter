@@ -44,19 +44,24 @@ export default function Counter(){
 
         let stringValue = seconds.toString();
 
-        if(seconds <= 0){
-            setFirstDigit("0");
-            setSecondDigit("0");
-            setThirdDigit("0");
-            setFourthDigit("0");
+        if (seconds <= 0){
+            setFirstDigit(0);
+            setSecondDigit(0);
+            setThirdDigit(0);
+            setFourthDigit(0);
         }
 
         if (seconds < 10){
             setFirstDigit(stringValue.charAt(0));
+            setSecondDigit(0);
+            setThirdDigit(0);
+            setFourthDigit(0);
         }
         if (seconds >= 10 && seconds < 100){
             setFirstDigit(stringValue.charAt(1));
             setSecondDigit(stringValue.charAt(0));
+            setThirdDigit(0);
+            setFourthDigit(0);
         }
         if (seconds == 60){
             alert('1 minute passed!')
@@ -65,6 +70,7 @@ export default function Counter(){
             setFirstDigit(stringValue.charAt(2));
             setSecondDigit(stringValue.charAt(1));
             setThirdDigit(stringValue.charAt(0));
+            setFourthDigit(0);
             }
         if (seconds == 600){
             alert('10 minute passed!')
