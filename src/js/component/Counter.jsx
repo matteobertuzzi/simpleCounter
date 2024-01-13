@@ -27,8 +27,8 @@ export default function Counter(){
             if(!isStop){
                 intervalId = setInterval(() => {
                     setSeconds(prevSecond => prevSecond - 1);
-                }, 1000)}
-        }
+            }, 1000)
+        }}
 
         return () => clearInterval(intervalId);
       }, [isCountdown]);
@@ -43,6 +43,14 @@ export default function Counter(){
     useEffect(()=>{       
 
         let stringValue = seconds.toString();
+
+        if(seconds <= 0){
+            setFirstDigit("0");
+            setSecondDigit("0");
+            setThirdDigit("0");
+            setFourthDigit("0");
+        }
+
         if (seconds < 10){
             setFirstDigit(stringValue.charAt(0));
         }
